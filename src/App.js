@@ -8,6 +8,10 @@ import Detail from "./containers/Detail";
 import NotFound from "./containers/404";
 import LocalStore from './util/localStore'
 import {CITYNAME} from './constants'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as userInfoActionsFromOtherFile from './redux/actions'
+
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +27,9 @@ class App extends Component {
       cityName = '上海'
     }
     console.log(cityName)
+    this.props.userInfoActions.update({
+      cityName
+    })
     setTimeout(() => {
       this.setState({
         initDone:true
@@ -59,4 +66,18 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+      userInfoActions: bindActionCreators(userInfoActionsFromOtherFile, dispatch),
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
