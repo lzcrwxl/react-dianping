@@ -6,7 +6,7 @@ import User from "./containers/User";
 import Search from "./containers/Search";
 import Detail from "./containers/Detail";
 import NotFound from "./containers/404";
-// import LocalStore from './util/localStore'
+import LocalStore from './util/localStore'
 import {CITYNAME} from './constants'
 
 class App extends Component {
@@ -18,11 +18,11 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    // let cityName = LocalStore.getItem(CITYNAME)
-    // if(cityName == null){
-    //   cityName = '上海'
-    // }
-
+    let cityName = LocalStore.getItem(CITYNAME)
+    if(cityName == null){
+      cityName = '上海'
+    }
+    console.log(cityName)
     setTimeout(() => {
       this.setState({
         initDone:true
