@@ -8,7 +8,6 @@ import Detail from "./containers/Detail";
 import NotFound from "./containers/404";
 import LocalStore from './util/localStore'
 import {CITYNAME} from './constants'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import {updateInfo} from './redux/actions' 
 
