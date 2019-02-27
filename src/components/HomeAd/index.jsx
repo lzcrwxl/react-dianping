@@ -4,7 +4,6 @@ import "./style.less";
 
 class HomeAd extends React.Component {
   render() {
-    const data = this.props.data;
     return (
       <div id="home-ad">
         <h2>超级特惠</h2>
