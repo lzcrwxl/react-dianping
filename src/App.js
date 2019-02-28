@@ -1,17 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Home from "./containers/Home";
-import City from "./containers/City";
-import User from "./containers/User";
-import Search from "./containers/Search";
-import Detail from "./containers/Detail";
-import NotFound from "./containers/404";
 import LocalStore from './util/localStore'
 import {CITYNAME} from './constants'
 import { connect } from 'react-redux';
 import {updateInfo} from './redux/actions' 
+import {  withRouter } from "react-router-dom";
 
-
+@withRouter
 @connect(
   null,
   {updateInfo}
@@ -48,21 +42,10 @@ class App extends Component {
       <h2>页面出错</h2>
     ) : (
       <div>
-        {this.state.initDone ? (
-          <BrowserRouter>
-            <Switch>
-              <Redirect from="/" exact to="/Home" />
-              <Route path="/Home" component={Home} />
-              <Route path="/City" component={City} />
-              <Route path="/User" component={User} />
-              <Route path="/search/:type(/:keyword)" component={Search} />
-              <Route path="/detail/:id" component={Detail} />
-              <Route path="*" component={NotFound} />
-            </Switch>
-          </BrowserRouter>
-        ) : (
-          <div>加载中。。。。</div>
-        )}
+        {this.state.initDone ? 
+          this.props.children
+          : 
+          <div>加载中。。。。</div>}
       </div>
     );
   }

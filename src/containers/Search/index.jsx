@@ -1,10 +1,16 @@
 import React from "react";
+import SearchHeader from "../../components/SearchHeader";
+import SearchList from "./subpage/List.jsx";
 
 class Search extends React.Component {
   render() {
+    console.log(this.props);
+    const params = this.props.match.params;
+    console.log(params);
     return (
       <div>
-        <h1>search</h1>
+        <SearchHeader keyword={params.keyword} />
+        <SearchList keyword={params.keyword} category={params.category} />
       </div>
     );
   }

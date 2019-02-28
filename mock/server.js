@@ -21,8 +21,8 @@ router.get('/api/homead', async(ctx) => {
 var homeListData = require('./home/list.js')
 router.get('/api/homelist/:city/:page',  async(ctx) =>  {
     // 参数
-    console.log(ctx)
     const params = ctx.query
+    console.log(params)
     const paramsCity = params.city
     const paramsPage = params.page
 
@@ -31,7 +31,37 @@ router.get('/api/homelist/:city/:page',  async(ctx) =>  {
 
     ctx.body = homeListData
 });
+// 搜索结果页 - 搜索结果 - 三个参数
+var searchListData = require('./search/list.js')
+router.get('/api/search/:page/:city/:category/:keyword', async(ctx)=> {
+    // 参数
+    const params = ctx.query
+    const paramsPage = params.page
+    const paramsCity = params.city
+    const paramsCategory = params.category
+    const paramsKeyword = params.keyword
 
+    console.log('当前页数：' + paramsPage)
+    console.log('当前城市：' + paramsCity)
+    console.log('当前类别：' + paramsCategory)
+    console.log('关键字：' + paramsKeyword)
+
+    ctx.body = searchListData
+})
+// 搜索结果页 - 搜索结果 - 两个参数
+router.get('/api/search/:page/:city/:category',async(ctx)=> {
+    // 参数
+    const params = ctx.query
+    const paramsPage = params.page
+    const paramsCity = params.city
+    const paramsCategory = params.category
+
+    console.log('当前页数：' + paramsPage)
+    console.log('当前城市：' + paramsCity)
+    console.log('当前类别：' + paramsCategory)
+
+    ctx.body = searchListData
+})
 
 
 // 开始服务并生成路由

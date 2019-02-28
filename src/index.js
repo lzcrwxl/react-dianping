@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import reducers from './redux/reducers'
+import RouteMap from './router/routeMap'
 
 import './static/css/common.less'
 import './static/css/font.css'
@@ -19,7 +19,7 @@ const store = createStore(reducers, compose(
 ReactDOM.render(
 (
   <Provider store={store}>
-    <App />
+    <RouteMap />
   </Provider>
 )
 , document.getElementById('root'));
