@@ -15,7 +15,7 @@ class Login extends React.Component {
     return (
       <div>
         <Header title="登陆"></Header>
-        {this.state.checking ? <div>等待中</div> : <LoginComponent></LoginComponent>}
+        {this.state.checking ? <div>等待中</div> : <LoginComponent loginHandle={this.loginHandle.bind(this)}></LoginComponent>}
       </div>
     );
   }
