@@ -1,9 +1,12 @@
 import React from 'react'
 
 class NotFound extends React.Component{
+  constructor(props){
+
+  }
   render(){
     return(
-      <h1 className="404">404 not found page</h1>
+      <h1>404 not found page</h1>
     )
   }
 }

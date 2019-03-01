@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "../App";
 import Home from "../containers/Home";
 import City from "../containers/City";
@@ -11,6 +7,7 @@ import User from "../containers/User";
 import Search from "../containers/Search";
 import Detail from "../containers/Detail";
 import NotFound from "../containers/404";
+import Login from "../containers/Login";
 
 class RouteMap extends Component {
   render() {
@@ -20,6 +17,7 @@ class RouteMap extends Component {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/City" component={City} />
+            <Route path="/Login/:router?" component={Login} />
             <Route path="/User" component={User} />
             <Route path="/search/:category/:keyword?" component={Search} />
             <Route path="/detail/:id" component={Detail} />

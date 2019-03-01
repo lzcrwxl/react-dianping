@@ -8,8 +8,7 @@ import SearchInput from "../../components/SearchInput";
 class HomeHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
   render() {
     return (
@@ -22,19 +21,21 @@ class HomeHeader extends React.Component {
           </Link>
         </div>
         <div className="home-header-right float-right">
-          <i className="icon-user" />
+          <Link to="/Login">
+            <i className="icon-user" />
+          </Link>
         </div>
         <div className="home-header-middle">
           <div className="search-container">
             <i className="icon-search" />
-            <SearchInput value="" enterHandle={this.enterHandle.bind(this)}/>
+            <SearchInput value="" enterHandle={this.enterHandle.bind(this)} />
           </div>
         </div>
       </div>
     );
   }
   enterHandle(value) {
-    this.props.history.push('/search/all/'+encodeURIComponent(value))
+    this.props.history.push("/search/all/" + encodeURIComponent(value));
   }
 }
 

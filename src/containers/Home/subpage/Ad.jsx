@@ -32,7 +32,10 @@ class Ad extends React.Component {
         if (data.length) {
           this.setState({ data });
         }
-      });
+      }).catch(ex => {
+        // 发生错误
+            console.error('首页广告模块获取数据报错, ', ex.message)
+    })
   }
 }
 

@@ -14,7 +14,7 @@ class SearchHeader extends React.Component {
           className="back-icon float-left"
           onClick={this.clickHandle.bind(this)}
         >
-          返回
+          <i className="icon-chevron-left" />
         </span>
         <div className="input-container">
           <i className="icon-search" />

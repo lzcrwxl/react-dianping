@@ -26,7 +26,6 @@ class LoadMore extends React.Component {
       if(top&&top<windowHeight){
         loadMoreFn()
       }
-      console.log(top)
     }
     window.addEventListener('scroll',()=>{
       if(this.props.isLoading){
